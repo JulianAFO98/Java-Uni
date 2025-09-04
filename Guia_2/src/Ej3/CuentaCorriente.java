@@ -11,12 +11,11 @@ public class CuentaCorriente extends CuentaBancaria{
 	}
 
 	@Override
-	public void extraer(double monto) {
-		if(super.getSaldo()>= monto) {
-			super.saldo
-		}
-		
-	}
+    public void extraer(double monto) {
+        if (this.getSaldo() - monto >= -this.topePactado) {
+            this.saldo -= monto;
+        } 
+    }
 
 	public void setTopePactado(double monto) {
 		this.topePactado = monto;
