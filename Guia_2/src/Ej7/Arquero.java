@@ -1,0 +1,27 @@
+package Ej7;
+
+public class Arquero extends Jugador{
+
+	private double efectividad; 
+	
+	public Arquero(String nombre, double velocidad, double potencia) {
+		super(nombre, velocidad, potencia);
+		this.efectividad = 0.5;
+	}
+	
+	public Arquero(String nombre, double velocidad, double potencia,double efectividad) {
+		super(nombre, velocidad, potencia);
+		this.efectividad = efectividad;
+	}
+
+	@Override
+	public double indiceDefensa() {
+		return this.efectividad;
+	}
+
+	@Override
+	public double indiceAtaque() {
+		return 0.1 * this.velocidad * this.potencia;
+	}
+		
+}
