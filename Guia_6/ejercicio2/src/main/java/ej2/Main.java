@@ -2,6 +2,7 @@ package ej2;
 
 import ej2.modelo.ListaConPrioridades;
 import ej2.modelo.Llamado;
+import ej2.modelo.OperadoraEmergencias;
 import ej2.modelo.Socio;
 
 public class Main {
@@ -19,7 +20,13 @@ public class Main {
         llamados.agrega(l2);
         llamados.agrega(l3);
 
-        System.err.println(llamados.getElemento()); 
-
+        System.out.println(llamados.getElemento()); 
+        OperadoraEmergencias op = new OperadoraEmergencias();
+        op.agrega(l1);
+        op.agrega(l2);
+        op.agrega(l3);
+        System.out.println(op.getElemento());
+        System.out.println(op.cantidadLlamados(s1));
+        System.out.println(op.getSocioMasEmergencias());
     }
 }

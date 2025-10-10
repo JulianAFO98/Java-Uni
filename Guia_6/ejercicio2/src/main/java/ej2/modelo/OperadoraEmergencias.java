@@ -2,7 +2,6 @@ package ej2.modelo;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
 import java.util.Iterator;
 
 public class OperadoraEmergencias extends ListaConPrioridades<Llamado>{
@@ -26,8 +25,30 @@ public class OperadoraEmergencias extends ListaConPrioridades<Llamado>{
     }
 
     public Socio getSocioMasEmergencias(){
+        ArrayList<Socio> socios = new ArrayList<>();
+        ArrayList<Integer> cantLlamados = new ArrayList<>();
         Iterator<Llamado> r = getLlamadosAtendidos();
-        return null;
+        Llamado l;
+        int pos;
+        while(r.hasNext()){
+            l = r.next();
+            if (!socios.contains(l.getSocio())){
+                socios.add(l.getSocio());
+                cantLlamados.add(1);
+            } else {
+                pos = socios.indexOf(l.getSocio());
+                cantLlamados.set(pos, cantLlamados.get(pos) + 1);
+            }
+        }
+        int max = -1;
+        int posMax = -1;
+        for (int i = 0; i < cantLlamados.size(); i++) {
+            if (cantLlamados.get(i) > max){
+                max = cantLlamados.get(i);
+                posMax = i;
+            }
+        }
+        return socios.get(posMax);
     }
 
     @Override
