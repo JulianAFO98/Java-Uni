@@ -6,7 +6,7 @@ public class Prueba {
 		try {
 			Domicilio dom1 = new Domicilio("Av. Siempre Viva", 742);
 			Persona p1 = new Persona(12345678, "Fernandez", dom1, 101,new Gato(10,"Michi"));
-			Persona p3 = new Persona(12345678, "Fernandez", dom1, 101,new Perro(10,"Firulais"));
+			Persona p3 = new Persona(12345678, "Fernandez", dom1, 101,new Gato(10,"Firulais"));
 
 			// Clonamos la persona
 			Persona p2 = (Persona) p3.clone();

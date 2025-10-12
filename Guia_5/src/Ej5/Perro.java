@@ -6,9 +6,6 @@ public class Perro extends Animal{
 		super(esperanzaDeVida, nombre);
 	}
 
-	@Override
-	public Object clone() throws CloneNotSupportedException {
-		return super.clone();
-	}
+	
 
 }
