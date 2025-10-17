@@ -10,10 +10,6 @@ public class Mapa {
 		this.nombre = nombre;
 	}
 	
-	
-	
-	
-	
 	public ArrayList<Personaje> getPersonajes() {
 		return personajes;
 	}
@@ -33,7 +29,6 @@ public class Mapa {
 		}
 	}
 
-	
 	
 	
 	

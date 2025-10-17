@@ -3,9 +3,7 @@ package ej1.vista;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.GridLayout;
-
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,25 +17,16 @@ import javax.swing.JTextField;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
-
-import ej1.modelo.Arquero;
-import ej1.modelo.AtaqueImposibleException;
-import ej1.modelo.Caballero;
-import ej1.modelo.Dragon;
 import ej1.modelo.IVista;
-import ej1.modelo.Mago;
-import ej1.modelo.Paladin;
 import ej1.modelo.Personaje;
-import ej1.modelo.Posicion;
-
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 
 public class Ventana extends JFrame implements IVista {
 
 	private static final long serialVersionUID = 1L;
-	private ActionListener controlador;
 	private JPanel contentPane;
 	private JPanel panelPersonajes;
 	private JPanel panelAgregar;
@@ -95,25 +84,6 @@ public class Ventana extends JFrame implements IVista {
 	private JButton brnCrearMago;
 	private JPanel panel_26;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Ventana frame = new Ventana();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Ventana() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -142,7 +112,6 @@ public class Ventana extends JFrame implements IVista {
 		this.panel.add(this.panel_1);
 
 		this.btnAtacar = new JButton("Atacar");
-		this.btnAtacar.addActionListener(this.controlador);
 		this.panel_1.add(this.btnAtacar);
 		this.btnAtacar.setActionCommand("atacar");
 
@@ -150,7 +119,6 @@ public class Ventana extends JFrame implements IVista {
 		this.panel.add(this.panel_22);
 
 		this.btnCofreBendito = new JButton("Abrir cofre bendito");
-		this.btnCofreBendito.addActionListener(this.controlador);
 		this.btnCofreBendito.setActionCommand("bendito");
 		this.panel_22.add(this.btnCofreBendito);
 
@@ -159,7 +127,9 @@ public class Ventana extends JFrame implements IVista {
 
 		this.btnCofreMaldito = new JButton("Abrir cofre maldito");
 		this.btnCofreMaldito.setActionCommand("maldito");
-		this.btnCofreMaldito.addActionListener(this.controlador);
+		
+
+
 		this.panel_23.add(this.btnCofreMaldito);
 
 		this.scrollPane_1 = new JScrollPane();
@@ -206,7 +176,7 @@ public class Ventana extends JFrame implements IVista {
 
 		this.btnNewButton = new JButton("Caballero");
 		this.btnNewButton.setActionCommand("caballero");
-		this.btnNewButton.addActionListener(this.controlador);
+		
 		this.panel_7.add(this.btnNewButton);
 
 		this.panel_24 = new JPanel();
@@ -215,7 +185,6 @@ public class Ventana extends JFrame implements IVista {
 		this.btnNewButton_4 = new JButton("Dragon");
 		this.btnNewButton_4.setActionCommand("dragon");
 		this.panel_24.add(this.btnNewButton_4);
-		this.btnNewButton_4.addActionListener(this.controlador);
 
 		this.panel_5 = new JPanel();
 		this.panelCrear.add(this.panel_5);
@@ -225,7 +194,6 @@ public class Ventana extends JFrame implements IVista {
 		this.panel_5.add(this.panel_8);
 
 		this.btnNewButton_1 = new JButton("Paladin");
-		this.btnNewButton_1.addActionListener(this.controlador);
 		this.btnNewButton_1.setActionCommand("paladin");
 		this.panel_8.add(this.btnNewButton_1);
 		
@@ -236,7 +204,6 @@ public class Ventana extends JFrame implements IVista {
 		this.panel_25.add(this.panel_26);
 		
 		this.brnCrearMago = new JButton("Mago");
-		this.brnCrearMago.addActionListener(this.controlador);
 		this.panel_26.add(this.brnCrearMago);
 
 		this.panel_6 = new JPanel();
@@ -246,7 +213,6 @@ public class Ventana extends JFrame implements IVista {
 		this.panel_6.add(this.panel_9);
 
 		this.btnNewButton_2 = new JButton("Arquero");
-		this.btnNewButton_2.addActionListener(this.controlador);
 		this.btnNewButton_2.setActionCommand("arquero");
 		this.panel_9.add(this.btnNewButton_2);
 
@@ -309,7 +275,7 @@ public class Ventana extends JFrame implements IVista {
 
 		this.btnNewButton_3 = new JButton("Mover");
 		this.btnNewButton_3.setActionCommand("mover");
-		this.btnNewButton_3.addActionListener(this.controlador);
+		
 		this.panel_13.add(this.btnNewButton_3);
 
 		this.panelDetalles = new JPanel();
@@ -330,132 +296,80 @@ public class Ventana extends JFrame implements IVista {
 	}
 
 	@Override
-	public void setControlador(ActionListener controlador) {
-		this.controlador = controlador;
+	public void addActionListener(ActionListener controlador) {
+		this.btnNewButton_3.addActionListener(controlador);
+		this.btnNewButton_2.addActionListener(controlador);
+		this.brnCrearMago.addActionListener(controlador);
+		this.btnNewButton_1.addActionListener(controlador);
+		this.btnNewButton_4.addActionListener(controlador);
+		this.btnCofreMaldito.addActionListener(controlador);
+		this.btnNewButton.addActionListener(controlador);
+		this.btnCofreBendito.addActionListener(controlador);
+		this.btnAtacar.addActionListener(controlador);
 	}
 
-	private void crearMago() {
-        String nombre = this.campoNombre.getText();
-        if (nombre == null || nombre.equals("")) {
-            JOptionPane.showMessageDialog(this, "No se puede crear un personaje sin nombre");
-        } else {
-            mapa.agregarPersonaje(new Mago(nombre, new Posicion(0, 0)));
-            this.log.append("Se creo un Mago\n");
-        }
-
-    }
-
-    private void maldecir() {
-        Personaje p = (Personaje) this.listaPersonaje1.getSelectedValue();
-        if (p != null) {
-            p.serMaldecido();
-            this.log.append(p.getNombre() + " fue maldecido!\n");
-        } else {
-            JOptionPane.showMessageDialog(this, "Seleccione un personaje de la lista 1 para maldecir");
-        }
-    }
-
-    private void bendecir() {
-        Personaje p = (Personaje) this.listaPersonaje1.getSelectedValue();
-        if (p != null) {
-            p.serBendecido();
-            this.log.append(p.getNombre() + " fue bendecido!\n");
-        } else {
-            JOptionPane.showMessageDialog(this, "Seleccione un personaje de la lista 1 para bendecir");
-        }
-
-    }
-
-    private void atacar() {
-        Personaje p1 = (Personaje) this.listaPersonaje1.getSelectedValue();
-        Personaje p2 = (Personaje) this.listaPersonaje2.getSelectedValue();
-        if (p1 != null && p2 != null) {
-            if (p1 == p2) {
-                JOptionPane.showMessageDialog(this, "El personaje no es pendejo,no se ataca solo");
-            } else {
-                try {
-                    mapa.ataca(p1, p2);
-                    this.log.append(p1.getNombre() + " ataco a " + p2.getNombre() + "\n");
-                } catch (AtaqueImposibleException e) {
-                    double distDeAtaque = e.getAtacante().getDistanciaMaximaDeDesplazamiento();
-                    JOptionPane.showMessageDialog(this, p1.getNombre() + " quizo atacar a " + p2.getNombre()
-                            + " pero estaba fuera de rango(Distancia Max: " + distDeAtaque + ")\n");
-                }
-
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Falto seleccionar algun personaje");
-        }
-
-    }
-
-    private void actualizarListas() {
-        this.modelo.clear();
-        Iterator<Personaje> it = this.mapa.getPersonajes().iterator();
+	
+	@Override
+	public void actualizarListas(ArrayList<Personaje> personajes){
+		this.modelo.clear();
+        Iterator<Personaje> it = personajes.iterator();
         while (it.hasNext()) {
             this.modelo.addElement(it.next());
         }
+	}
 
-    }
+	@Override
+	public void actualizarLog(String log) {
+		this.log.append(log);
+		
+	}
 
-    private void mover() {
-        Personaje p = (Personaje) this.listaPersonaje1.getSelectedValue();
-        if (p != null) {
-            double x = Double.parseDouble(this.campoX.getText());
-            double y = Double.parseDouble(this.campoY.getText());
-            mapa.mueve(p, x, y);
-            this.log.append(p.getNombre() + " se movio a " + "(" + p.getPosx() + "," + p.getPosy() + ")\n");
+	@Override
+	public double getCantidadX() {
+		double X;
+		try{
+			X = Double.parseDouble(this.campoX.getText());
+		}catch(Exception e){
+			X = 0;
+		}
+		return X;
+	}
 
-        } else {
-            JOptionPane.showMessageDialog(this, "Seleccione un personaje de la lista 1");
-        }
+	@Override
+	public double getCantidadY() {
+		double Y;
+		try{
+			Y = Double.parseDouble(this.campoY.getText());
+		}catch(Exception e){
+			Y = 0;
+		}
+		return Y;
+	}
 
-    }
+	@Override
+	public String getNombrePersonaje() {
+		return this.campoNombre.getText();
+	}
 
-    private void crearPaladin() {
+	@Override
+	public Personaje getPrimerPersonaje() {
+		Personaje p = (Personaje) this.listaPersonaje1.getSelectedValue();
+		return p;
+	}
 
-        String nombre = this.campoNombre.getText();
-        if (nombre == null || nombre.equals("")) {
-            JOptionPane.showMessageDialog(this, "No se puede crear un personaje sin nombre");
-        } else {
-            mapa.agregarPersonaje(new Paladin(nombre, new Posicion(0, 0)));
-            this.log.append("Se creo un Paladin\n");
-        }
+	@Override
+	public Personaje getSegundoPersonaje() {
+        Personaje p = (Personaje) this.listaPersonaje2.getSelectedValue();
+		return p;
+	}
 
-    }
+	@Override
+	public void generarDialog(String msg) {
+		JOptionPane.showMessageDialog(this, msg);
+		
+	}
 
-    private void crearCaballero() {
-        String nombre = this.campoNombre.getText();
-        if (nombre == null || nombre.equals("")) {
-            JOptionPane.showMessageDialog(this, "No se puede crear un personaje sin nombre");
-        } else {
-            mapa.agregarPersonaje(new Caballero(nombre, new Posicion(0, 0)));
-            this.log.append("Se creo un caballero\n");
-        }
-
-    }
-
-    private void crearArquero() {
-        String nombre = this.campoNombre.getText();
-        if (nombre == null || nombre.equals("")) {
-            JOptionPane.showMessageDialog(this, "No se puede crear un personaje sin nombre");
-        } else {
-            mapa.agregarPersonaje(new Arquero(nombre, new Posicion(0, 0)));
-            this.log.append("Se creo un Arquero\n");
-        }
-
-    }
-
-    private void crearDragon() {
-        String nombre = this.campoNombre.getText();
-        if (nombre == null || nombre.equals("")) {
-            JOptionPane.showMessageDialog(this, "No se puede crear un personaje sin nombre");
-        } else {
-            mapa.agregarPersonaje(new Dragon(nombre, 1000, 30, new Posicion(0, 0), 100));
-            this.log.append("Se creo un Arquero\n");
-        }
-
-    }
+    
 
 
 }
