@@ -61,27 +61,25 @@ public class Tablero implements ITablero {
     }
 
     @Override
-    public void activarCasillas(int i,int j) {
+    public void activarCasillas(int i, int j) {
         int valorInicialI = Math.max(0, i - 1);
         int valorFinalI = Math.min(this.alto - 1, i + 1);
         int valorInicialJ = Math.max(0, j - 1);
         int valorFinalJ = Math.min(this.ancho - 1, j + 1);
         int cantMinas = 0;
         Casilla actual = tablero[i][j];
-        
-        if(!actual.isPisada() && !actual.isMina()){
-            actual.setPisada(true);
+        if (!actual.isPisada() && !actual.isMina()) {
             cantMinas = getMinasCercanas(i, j);
             actual.setTexto(String.valueOf(cantMinas));
-            if(cantMinas == 0){
+            actual.setPisada(true);
+            if (cantMinas==0)
                 for (int k = valorInicialI; k <= valorFinalI; k++) {
                     for (int k2 = valorInicialJ; k2 <= valorFinalJ; k2++) {
                         if (k != i || k2 != j)
                             activarCasillas(k, k2);
                     }
                 }
-                
-            }
+
         }
     }
 
@@ -123,10 +121,11 @@ public class Tablero implements ITablero {
         int valorInicialJ = Math.max(0, j - 1);
         int valorFinalJ = Math.min(this.ancho - 1, j + 1);
         int sumaMinas = 0;
-        for (int k = valorInicialI; k < valorFinalI; k++) {
-            for (int k2 = valorInicialJ; k2 < valorFinalJ; k2++) {
-                if (k != k2 & tablero[k][k2].isMina()) {
-                    sumaMinas++;
+        for (int k = valorInicialI; k <= valorFinalI; k++) {
+            for (int k2 = valorInicialJ; k2 <= valorFinalJ; k2++) {
+                if (k != i  ||  k2 != j) {
+                    if(tablero[k][k2].isMina())
+                        sumaMinas++;
                 }
             }
         }
@@ -134,7 +133,7 @@ public class Tablero implements ITablero {
 
     }
 
-    public Casilla[][] getMatriz(){
+    public Casilla[][] getMatriz() {
         return tablero;
     }
 
