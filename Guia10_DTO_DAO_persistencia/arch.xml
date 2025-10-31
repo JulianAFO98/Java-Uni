@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="21.0.8" class="java.beans.XMLDecoder">
+ <object class="ej1.modelo.DTO.FlotaDTO" id="FlotaDTO0">
+  <void property="autos">
+   <void method="add">
+    <object class="ej1.modelo.DTO.AutomovilDTO">
+     <void property="anio_fabricacion">
+      <int>2000</int>
+     </void>
+     <void property="marca">
+      <string>Toyota</string>
+     </void>
+     <void property="modelo">
+      <string>m1</string>
+     </void>
+     <void property="motorDTO">
+      <object class="ej1.modelo.DTO.MotorDTO">
+       <void property="n_Serie">
+        <string>ad2f3</string>
+       </void>
+       <void property="tipoCombustible">
+        <string>Diesel</string>
+       </void>
+      </object>
+     </void>
+     <void property="n_Chasis">
+      <string>32312</string>
+     </void>
+     <void property="patente">
+      <string>aaa111</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ej1.modelo.DTO.AutomovilDTO">
+     <void property="anio_fabricacion">
+      <int>1998</int>
+     </void>
+     <void property="marca">
+      <string>Ford</string>
+     </void>
+     <void property="modelo">
+      <string>m2</string>
+     </void>
+     <void property="motorDTO">
+      <object class="ej1.modelo.DTO.MotorDTO">
+       <void property="n_Serie">
+        <string>1123s</string>
+       </void>
+       <void property="tipoCombustible">
+        <string>Gasoil</string>
+       </void>
+      </object>
+     </void>
+     <void property="n_Chasis">
+      <string>23423</string>
+     </void>
+     <void property="patente">
+      <string>aaa323</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ej1.modelo.DTO.AutomovilDTO">
+     <void property="anio_fabricacion">
+      <int>2001</int>
+     </void>
+     <void property="marca">
+      <string>Nissan</string>
+     </void>
+     <void property="modelo">
+      <string>m3</string>
+     </void>
+     <void property="motorDTO">
+      <object class="ej1.modelo.DTO.MotorDTO">
+       <void property="n_Serie">
+        <string>kft45</string>
+       </void>
+       <void property="tipoCombustible">
+        <string>Diesel</string>
+       </void>
+      </object>
+     </void>
+     <void property="n_Chasis">
+      <string>231123</string>
+     </void>
+     <void property="patente">
+      <string>aaa123</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ej1.modelo.DTO.AutomovilDTO">
+     <void property="anio_fabricacion">
+      <int>2019</int>
+     </void>
+     <void property="marca">
+      <string>BMW</string>
+     </void>
+     <void property="modelo">
+      <string>m4</string>
+     </void>
+     <void property="motorDTO">
+      <object class="ej1.modelo.DTO.MotorDTO">
+       <void property="n_Serie">
+        <string>zzfd3</string>
+       </void>
+       <void property="tipoCombustible">
+        <string>Super</string>
+       </void>
+      </object>
+     </void>
+     <void property="n_Chasis">
+      <string>23223</string>
+     </void>
+     <void property="patente">
+      <string>aaa543</string>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="nombre">
+   <string>Flota 1</string>
+  </void>
+ </object>
+</java>
