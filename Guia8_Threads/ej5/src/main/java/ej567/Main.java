@@ -1,9 +1,11 @@
-package ej5;
+package ej567;
 
-import ej5.modelo.Biblioteca;
-import ej5.modelo.Donador;
-import ej5.modelo.Libro;
-import ej5.modelo.Socio;
+import ej567.modelo.Biblioteca;
+import ej567.modelo.Donador;
+import ej567.modelo.Libro;
+import ej567.modelo.Revista;
+import ej567.modelo.SocioLibro;
+import ej567.modelo.SocioRevista;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,6 +24,13 @@ public class Main {
         Libro lc = new Libro(13, "Clean code");
         Libro ld = new Libro(0xe, "Javascript 101");
         Libro le = new Libro(0xf, "C# Guide");
+        Revista r1 = new Revista(1,"Billiken");
+        Revista r2 = new Revista(2,"MAD");
+        Revista r3 = new Revista(3,"Papparazzi");
+        Revista r4 = new Revista(4,"Articulos cientificos 1");
+        Revista r5 = new Revista(5,"Articulos cientificos 2");
+
+
 
         Biblioteca b = new Biblioteca();
         b.agregarLibro(l5);
@@ -35,16 +44,23 @@ public class Main {
         b.agregarLibro(le);
         b.agregarLibro(lf);
         
-        Socio s1 = new Socio("Juan", b);
-        Socio s2 = new Socio("Ramiro", b);
-        Socio s3 = new Socio("Laura", b);
-        Socio s4 = new Socio("Franco", b);
-        Socio s5 = new Socio("Agustin", b);
-        Socio s6 = new Socio("Marcelo", b);
-        Socio s7 = new Socio("Ana", b);
-        Socio s8 = new Socio("Anticitera", b);
-        Socio s9 = new Socio("Julian", b);
-        Socio sA = new Socio("Pedro", b);
+        b.agregarRevista(r5);
+        b.agregarRevista(r1);
+        b.agregarRevista(r2);
+        b.agregarRevista(r3);
+        b.agregarRevista(r4);
+
+
+        SocioLibro s1 = new SocioLibro("Juan", b);
+        SocioLibro s2 = new SocioLibro("Ramiro", b);
+        SocioLibro s3 = new SocioLibro("Laura", b);
+        SocioLibro s4 = new SocioLibro("Franco", b);
+        SocioLibro s5 = new SocioLibro("Agustin", b);
+        SocioLibro s6 = new SocioLibro("Marcelo", b);
+        SocioLibro s7 = new SocioLibro("Ana", b);
+        SocioLibro s8 = new SocioLibro("Anticitera", b);
+        SocioLibro s9 = new SocioLibro("Julian", b);
+        SocioLibro sA = new SocioLibro("Pedro", b);
 
         Donador d1 = new Donador("Marcos", l6, b);
         Donador d2 = new Donador("Felipe", l7, b);
@@ -52,13 +68,23 @@ public class Main {
         Donador d4 = new Donador("Alejo", l9, b);
         Donador d5 = new Donador("Maylen", la, b);
         
-
+        SocioRevista sr1 = new SocioRevista("Marcos", b);
+        SocioRevista sr2 = new SocioRevista("Antonio", b);
+        SocioRevista sr3 = new SocioRevista("Maria", b);
+        SocioRevista sr4 = new SocioRevista("Ciri", b);
+        SocioRevista sr5 = new SocioRevista("Pablo", b);
 
         d1.start();
         d2.start();
         d3.start();
         d4.start();
         d5.start();
+
+        sr1.start();
+        sr2.start();
+        sr3.start();
+        sr4.start();
+        sr5.start();
 
         s1.start();
         s2.start();
