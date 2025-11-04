@@ -1,11 +1,11 @@
-package ej567;
+package ej56;
 
-import ej567.modelo.Biblioteca;
-import ej567.modelo.Donador;
-import ej567.modelo.Libro;
-import ej567.modelo.Revista;
-import ej567.modelo.SocioLibro;
-import ej567.modelo.SocioRevista;
+import ej56.modelo.Biblioteca;
+import ej56.modelo.Donador;
+import ej56.modelo.Libro;
+import ej56.modelo.Revista;
+import ej56.modelo.SocioLibro;
+import ej56.modelo.SocioRevista;
 
 public class Main {
     public static void main(String[] args) {

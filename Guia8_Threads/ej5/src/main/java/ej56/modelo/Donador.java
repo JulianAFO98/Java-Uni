@@ -1,4 +1,4 @@
-package ej567.modelo;
+package ej56.modelo;
 
 public class Donador extends Thread {
     private Libro libADonar;

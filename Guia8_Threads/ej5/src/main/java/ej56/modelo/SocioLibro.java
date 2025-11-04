@@ -1,14 +1,14 @@
-package ej567.modelo;
+package ej56.modelo;
 
 import java.util.Random;
 
-public class SocioRevista extends Thread{
+public class SocioLibro extends Thread{
 
     Biblioteca b;
 
     
 
-    public SocioRevista(String name, Biblioteca b) {
+    public SocioLibro(String name, Biblioteca b) {
         super(name);
         this.b = b;
     }
@@ -21,9 +21,9 @@ public class SocioRevista extends Thread{
         //cada alumno quiere retirar 2 libros
         for (int i = 0; i < 2; i++) {
             try {
-                Revista rev = b.retirarRevista(r.nextInt(5) + 1,this);
+                Libro lib = b.retirarLibro(r.nextInt(15) + 1,this);
                 Thread.sleep(r.nextInt(3) * 2000);
-                b.devolverRevista(rev,this);
+                b.devolverLibro(lib,this);
                 Thread.sleep(r.nextInt(3)*2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();

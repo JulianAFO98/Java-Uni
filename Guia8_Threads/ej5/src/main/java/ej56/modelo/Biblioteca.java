@@ -1,4 +1,4 @@
-package ej567.modelo;
+package ej56.modelo;
 
 import java.util.HashMap;
 

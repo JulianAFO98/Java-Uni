@@ -1,4 +1,4 @@
-package ej567.modelo;
+package ej56.modelo;
 
 public class Libro {
     private int idLibro;
