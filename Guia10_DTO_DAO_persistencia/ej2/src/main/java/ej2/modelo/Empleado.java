@@ -1,7 +1,8 @@
 package ej2.modelo;
 
+import java.io.Serializable;
 
-public class Empleado {
+public class Empleado implements Serializable{
 	private String nombre,telefono,email;
 	private static final long serialVersionUID = 1L;
 
